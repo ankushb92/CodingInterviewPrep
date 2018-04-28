@@ -13,7 +13,7 @@ void add_edge(vector<int> adj[], int n1, int n2) {
     adj[n2].push_back(n1);
 }
 
-void bfs(int root, vector<int> adj[], vector<node> nodes) {
+void bfs(int root, vector<int> adj[], vector<node> &nodes) {
 
     int visited[nodes.size()];
     for(int i=0; i<nodes.size(); i++) {
@@ -47,6 +47,7 @@ int main() {
         p->val = 10-i;
         i += 1;
     }
+    add_edge(adj, 0, 1);
     add_edge(adj, 1, 3);
     add_edge(adj, 2, 5);
     add_edge(adj, 1, 6);
@@ -55,6 +56,6 @@ int main() {
     add_edge(adj, 4, 2);
     add_edge(adj, 1, 4);
     add_edge(adj, 2, 8);
-    bfs(1, adj, nodes);
+    bfs(0, adj, nodes);
     return 0;
 }
